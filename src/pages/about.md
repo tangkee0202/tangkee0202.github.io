@@ -1,29 +1,33 @@
 ---
 layout: ../layouts/AboutLayout.astro
 title: "About"
-description: "Get to know Andrés, the web developer, student, and gamer behind Astro Devosfera."
+description: "Learn more about Tangkee and this personal blog about everyday life, useful tools, and robotics."
 ---
 
-Welcome to my digital corner. I am a **developer** and **student** passionate about technology, video games, and building things that live on the internet.
+Welcome to my personal blog. I am **Tangkee**, a curious learner who enjoys exploring new tools, building things, and documenting the journey along the way.
 
-## Who am I?
+## Who I am
 
-My name is Andrés, and since I can remember, I have always been curious about understanding how things work — from taking apart toys as a child to taking apart other people's code at 2 AM. I am currently studying engineering while developing projects that challenge me to learn something new every day.
+I am curious about technology and the world around me. When something catches my interest, I like to experiment with it, research how it works, organize what I learn, and turn the experience into notes I can return to later.
 
-When I am not programming, I am probably in some virtual world exploring maps, completing missions, or competing online. Video games are not just my hobby, they also taught me how to solve problems, work in a team, and, above all, not to give up after attempt #847.
+This blog is both a learning archive and a personal space of my own. The goal is not to make every post perfect, but to honestly document the process—the questions, failed attempts, discoveries, and solutions.
 
-## What I do
+## What I write about
 
-- **Web Development** — I love building modern web experiences with technologies like Astro, React, TypeScript, and everything the JavaScript ecosystem has to offer.
-- **Open Source** — I believe in the power of open source. You can find my projects on [GitHub](https://github.com/0xdres/).
-- **Continuous Learning** — I am always exploring new tools, frameworks, and concepts. Technology evolves fast and I like to keep up with the pace.
+- **Everyday life** — Experiences, ideas, interests, and moments worth remembering.
+- **Tools and workflows** — Practical notes on software, development tools, productivity tools, and new technologies.
+- **Robotics** — Fundamentals, hardware and software experiments, project progress, and troubleshooting notes.
+- **Projects** — The journey from an initial idea to design, implementation, testing, and reflection.
+- **Learning notes** — Key takeaways and personal insights from books, courses, and other resources.
 
-## Gaming
+## Why this blog exists
 
-Video games are part of my DNA. From epic RPGs to competitive shooters, I enjoy practically any genre. It's that space where creativity meets strategy and pure fun.
+Small but important details are easy to forget while learning. Writing them down gives me a reliable reference for the future and may also help someone working through a similar problem.
 
-## This blog
+I plan to keep improving both the content and the site itself, allowing it to grow alongside my learning and everyday life.
 
-**Devosfera** was born as a space to document my journey as a developer, share what I learn, and connect with people who share the same passions. Here you will find posts about development, technology, and the occasional random late-night reflection.
+## Get in touch
 
-> _"Code is poetry, but with more semicolons."_ — Me, probably
+You can find my projects and latest updates on [GitHub](https://github.com/tangkee0202).
+
+> Documenting the journey is not about proving how fast you move; it is about seeing how far you have come.
