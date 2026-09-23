@@ -2,6 +2,7 @@
 title: "如何在 Astro 博客中发布一篇新文章"
 description: "记录从创建 Markdown 文件、本地预览到使用 GitHub Actions 自动发布博客的完整流程。"
 pubDatetime: 2026-09-23T21:40:00+08:00
+featured: true
 tags:
   - astro
   - 博客
