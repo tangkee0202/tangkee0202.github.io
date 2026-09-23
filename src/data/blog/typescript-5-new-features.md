@@ -1,6 +1,6 @@
 ---
-title: "TypeScript 5.x: features that change how you write code"
-description: Practical review of the most impactful new features in TypeScript 5.x — decorators, const type parameters, variadic tuple types and more.
+title: "TypeScript 5.x：改变代码写法的重要特性"
+description: "介绍 TypeScript 5.x 中影响较大的实用特性，包括 Standard Decorators、const Type Parameters 和更精确的类型推断。"
 pubDatetime: 2026-02-15T10:00:00Z
 tags:
   - typescript
@@ -9,20 +9,20 @@ tags:
 draft: false
 ---
 
-TypeScript continues to evolve at a rapid pace. The 5.x versions brought changes that go beyond performance improvements: they redefine patterns we have been using for years.
+TypeScript 仍在快速演进。5.x 系列带来的不仅是性能改进，还重新定义了一些我们使用多年的编程模式。
 
 ## Table of contents
 
-## Standard decorators (TC39 Stage 3)
+## Standard Decorators（TC39 Stage 3）
 
-Finally. After years with the experimental version, TypeScript 5.0 adopted the **standard decorators** from TC39. The syntax is similar but the semantics changed quite a bit.
+经过多年实验版本之后，TypeScript 5.0 终于采用了 TC39 的 **Standard Decorators**。语法看起来相似，但语义已经发生了明显变化。
 
 ```typescript file=decorators.ts
-// Class decorator — before (experimental)
+// 过去的类装饰器（实验性）
 @sealed
 class OldClass { ... }
 
-// Standard decorator — TS 5.x // [!code highlight]
+// TypeScript 5.x Standard Decorator // [!code highlight]
 function logged<T extends new (...args: unknown[]) => unknown>(
   target: T,
   _ctx: ClassDecoratorContext,
@@ -30,7 +30,7 @@ function logged<T extends new (...args: unknown[]) => unknown>(
   return class extends target {
     constructor(...args: unknown[]) {
       super(...args);
-      console.log(`[LOG] Instance of ${target.name} created`);
+      console.log(`[日志] 创建了 ${target.name} 的实例`);
     }
   };
 }
@@ -41,7 +41,7 @@ class UserService {
 }
 ```
 
-### Method and accessor decorators
+### 方法与访问器装饰器
 
 ```typescript file=method-decorator.ts
 function measure(_target: unknown, ctx: ClassMethodDecoratorContext) {
@@ -55,7 +55,7 @@ function measure(_target: unknown, ctx: ClassMethodDecoratorContext) {
       this,
       args // [!code ++]
     ); // [!code ++]
-    console.log(`${name} took ${performance.now() - start}ms`);
+    console.log(`${name} 耗时 ${performance.now() - start}ms`);
     return result;
   };
 }
@@ -70,26 +70,26 @@ class ReportService {
 
 ## `const` Type Parameters
 
-Before you needed `as const` on every call to infer literal tuples. Now you can declare it in the generic:
+过去，为了推断精确的字面量元组，调用时经常需要添加 `as const`。现在可以直接在泛型参数中声明：
 
 ```typescript file=const-type-params.ts
-// Before: inferred as string[]
+// 过去：推断结果为 string[]
 function head<T>(arr: T[]) {
   return arr[0];
 }
-head(["a", "b"]); // type: string
+head(["a", "b"]); // 类型：string
 
-// Now: inferred as the exact literal // [!code highlight]
+// 现在：推断出精确字面量 // [!code highlight]
 function head<const T extends readonly unknown[]>(arr: T) {
   return arr[0];
 }
-head(["a", "b"] as const); // type: "a"
-head(["a", "b"]); // type: "a"  ← works without as const // [!code ++]
+head(["a", "b"] as const); // 类型："a"
+head(["a", "b"]); // 类型："a"，无需 as const // [!code ++]
 ```
 
-## `satisfies` operator (consolidated)
+## 更实用的 `satisfies` 运算符
 
-Introduced in 4.9 but already part of the daily workflow. It allows validating that a value satisfies a type without "widening" it:
+`satisfies` 在 4.9 中引入，并在 5.x 时代成为日常工作流的一部分。它可以验证某个值是否满足类型要求，同时避免把值的类型过度扩宽。
 
 ```typescript file=satisfies.ts
 type Palette = {
@@ -104,14 +104,14 @@ const palette = {
   blue: [0, 0, 255],
 } satisfies Palette; // [!code highlight]
 
-// Now TypeScript knows that red is a tuple, not string
-palette.red.at(0); // ✓ — before it threw an error
+// TypeScript 仍然知道 red 是元组，而不只是 string 或数组
+palette.red.at(0);
 ```
 
-## Improvements in `infer` inference
+## `infer` 推断能力改进
 
 ```typescript file=infer-extends.ts
-// Extract the return type filtered by constraint
+// 提取满足约束的返回类型
 type ReturnIfString<T> = T extends () => infer R extends string
   ? R
   : never;
@@ -120,9 +120,9 @@ type A = ReturnIfString<() => "hello">; // "hello"
 type B = ReturnIfString<() => number>;  // never
 ```
 
-## Performance: `--incremental` and `--composite` mode
+## 性能：`--incremental` 与 `--composite` 模式
 
-TS 5.x optimized incremental builds. In large projects the improvement can be up to **3×**:
+TypeScript 5.x 优化了增量构建，大型项目中的速度提升可能达到 **3 倍**：
 
 ```json file=tsconfig.json
 {
@@ -135,14 +135,14 @@ TS 5.x optimized incremental builds. In large projects the improvement can be up
 }
 ```
 
-> **Tip:** combine `composite` with project references (`references`) for monorepos. Each package will compile only what changed.
+> **提示：**在 monorepo 中，可以把 `composite` 与项目引用（`references`）结合使用，让每个包只编译真正发生变化的部分。
 
-## Quick summary
+## 快速总结
 
-| Feature                    | Version                  | Impact                                   |
-| -------------------------- | ------------------------ | ---------------------------------------- |
-| Standard decorators        | 5.0                      | High — replaces experimental             |
-| `const` type params        | 5.0                      | Medium — less `as const`                 |
-| `satisfies`                | 4.9 / consolidated in 5.x| High — more expressive typing            |
-| `infer ... extends`        | 5.x                      | Medium — more precise conditional types  |
-| Improved incremental build | 5.x                      | High in monorepos                        |
+| 特性                | 版本               | 影响                 |
+| ------------------- | ------------------ | -------------------- |
+| Standard Decorators | 5.0                | 高：替代实验性实现   |
+| `const` 类型参数    | 5.0                | 中：减少 `as const`  |
+| `satisfies`         | 4.9，在 5.x 中普及 | 高：让类型表达更准确 |
+| `infer ... extends` | 5.x                | 中：条件类型更加精确 |
+| 增量构建改进        | 5.x                | 对 monorepo 影响较大 |

@@ -1,6 +1,6 @@
 ---
-title: "Vibe Coding: programming with AI at the speed of thought"
-description: Vibe coding is not laziness or cheating — it's a new skill that combines intuition, direction, and technical judgment to build software with AI as an active copilot.
+title: "Vibe Coding：以思考的速度与 AI 一起编程"
+description: "Vibe Coding 不是偷懒或作弊，而是一种结合直觉、方向感与技术判断，借助 AI 主动构建软件的新能力。"
 pubDatetime: 2026-02-08T10:00:00Z
 tags:
   - ai
@@ -10,76 +10,76 @@ tags:
 draft: false
 ---
 
-The term was coined by Andrej Karpathy in early 2025: _"Vibe coding is when you fully give in to the vibes, embrace exponentials, and forget that the code even exists."_ Two years later it is already part of the industry's vocabulary, although it is still misunderstood.
+Andrej Karpathy 在 2025 年初提出了 Vibe Coding 这个说法：“完全跟随感觉，拥抱指数级变化，甚至忘记代码本身的存在。”两年后，它已经成为行业词汇的一部分，却依旧经常被误解。
 
 <figure>
   <img
     src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80"
-    alt="Developer in front of multiple screens with code"
+    alt="开发者面对多个显示代码的屏幕"
   />
   <figcaption class="text-center">
-    AI-assisted development changed the relationship between the programmer and the code.
+    AI 辅助开发改变了程序员与代码之间的关系。
   </figcaption>
 </figure>
 
-## It's not "letting AI code for you"
+## 它不是“让 AI 替你写代码”
 
-The most common misunderstanding: vibe coding = not knowing what you are doing. The reality is the opposite. For AI to produce useful code you need:
+最常见的误解是：Vibe Coding 等于不知道自己在做什么。事实恰恰相反。想让 AI 产出真正有用的代码，你需要：
 
-- **To know exactly what you want** — prompt precision is proportional to the developer's experience.
-- **To evaluate the output** — distinguish idiomatic code from code that "works but is a ticking time bomb".
-- **To direct the iteration** — know when to redirect, when to reject, when to accept.
+- **准确知道自己想要什么**——提示词的精确程度，往往与开发者的经验成正比。
+- **能够评估输出**——分辨符合惯例的代码，与“现在能运行、以后会爆炸”的代码。
+- **主导迭代过程**——知道什么时候需要调整方向、拒绝方案或接受结果。
 
-Vibe coding is high-level design executed at high speed. It doesn't eliminate the need for technical judgment; it **amplifies** it.
+Vibe Coding 是以更高速度执行的高层设计。它没有消除技术判断的必要性，而是把这种判断力**放大**了。
 
-## The flow in practice
+## 实际工作流程
 
-A typical vibe coding cycle today looks like this:
+一次典型的 Vibe Coding 循环通常包括：
 
-1. **Clear intention** — you define the _what_ and the _why_ accurately.
-2. **Quick AI draft** — you get 70-80% of functional code.
-3. **Review and guide** — you correct the course, clarify invariants, add context.
-4. **Iterative refinement** — several short rounds until the result is solid.
-5. **Tests and final review** — you never skip this step; AI introduces technical debt if you don't supervise it.
-
----
-
-> The most valuable thing is not the raw speed, but that AI frees you from the _cognitive scroll_ — that layer of boilerplate and syntax that separates you from the real problem.
+1. **明确意图**——准确说明要做什么，以及为什么要做。
+2. **AI 快速起草**——得到约 70% 到 80% 可工作的代码。
+3. **审查与引导**——纠正方向、说明不可破坏的约束，并补充上下文。
+4. **迭代完善**——通过多轮短反馈逐渐得到可靠结果。
+5. **测试和最终审查**——绝不能跳过；缺少监督时，AI 很容易引入技术债务。
 
 ---
 
-## What tools define the ecosystem in 2026
+> 最有价值的并不只是速度，而是 AI 能减少“认知滚动”：那些把我们与真正问题隔开的样板代码和语法负担。
 
-| Tool                 | Purpose                           | Strong point                  |
-| -------------------- | --------------------------------- | ----------------------------- |
-| **GitHub Copilot**   | Autocomplete + agent in editor    | Native VS Code integration    |
-| **Cursor**           | AI-first editor                   | Full codebase context         |
-| **Windsurf**         | Autonomous editing agent          | Multi-file flows              |
-| **Claude (API)**     | Complex reasoning                 | Huge context window           |
-| **Gemini 2.0 Flash** | Speed and cost                    | Fast iterations               |
+---
 
-## The skills that gain more value
+## 2026 年的工具生态
 
-Vibe coding does not deprecate all technical skills, but it redistributes their value:
+| 工具                 | 用途                   | 主要优势               |
+| -------------------- | ---------------------- | ---------------------- |
+| **GitHub Copilot**   | 编辑器自动补全与 Agent | 原生集成 VS Code       |
+| **Cursor**           | AI 优先的代码编辑器    | 能理解完整代码库上下文 |
+| **Windsurf**         | 自主编辑 Agent         | 擅长多文件工作流       |
+| **Claude（API）**    | 复杂推理               | 上下文窗口大           |
+| **Gemini 2.0 Flash** | 速度与成本优化         | 适合快速迭代           |
 
-**Gain more value:**
+## 变得更有价值的能力
 
-- Architecture and system design
-- Judgment on what code is maintainable in the long term
-- Ability to write precise and contextual prompts
-- Code review and problematic pattern detection
-- Knowledge of domain rules (business, security, UX)
+Vibe Coding 不会让所有传统技术能力过时，但会重新分配它们的价值。
 
-**Lose relative relevance:**
+**价值上升：**
 
-- Memorizing syntax
-- Writing boilerplate manually
-- Knowing the API of every library by heart
+- 架构与系统设计
+- 判断代码能否长期维护
+- 编写精确且包含上下文的提示词
+- 代码审查与问题模式识别
+- 对业务、安全和用户体验等领域规则的理解
 
-## A cultural change, not just a technical one
+**相对价值下降：**
 
-Some developers resist vibe coding for a legitimate emotional reason: control. Writing every line gives the feeling of completely understanding the system. But that feeling was always partially illusory in large projects.
+- 背诵语法
+- 手动编写重复样板代码
+- 记住每个库的全部 API
 
-The question is not _should I use AI?_ but _how do I build trust in a system I didn't completely write myself?_ The answer is the same as always: **tests, reviews, and judgment**. Only now applied to a larger volume of production.
+## 这是文化变化，不只是技术变化
 
-The developer of the future is not the one who produces the most code or the one who uses AI the least. It is the one who builds **systems that work**, using the best available tools with the best possible judgment.
+一些开发者抗拒 Vibe Coding，背后有一个合理的情感原因：控制感。亲手写下每一行代码，会让人觉得自己完全理解系统。但在大型项目里，这种感觉本来就只是一部分真实。
+
+问题不再是“我该不该使用 AI”，而是“我如何信任一个并非完全由我亲手编写的系统”。答案和过去一样：**测试、审查与判断**，只是现在需要把它们应用到更大规模的产出上。
+
+未来的开发者，既不是写代码最多的人，也不是使用 AI 最少的人，而是能够借助最合适的工具和最可靠的判断，构建出**真正能够工作的系统**的人。

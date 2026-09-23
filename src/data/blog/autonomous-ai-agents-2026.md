@@ -1,6 +1,6 @@
 ---
-title: "Autonomous AI Agents: the new way to build software in 2026"
-description: AI agents are no longer science fiction. We analyze their architecture, real use cases, and how to integrate them into your development workflow.
+title: "自主 AI Agent：2026 年构建软件的新方式"
+description: "AI Agent 已经不再是科幻概念。本文分析它的架构、真实应用场景，以及如何将其融入开发工作流。"
 pubDatetime: 2026-02-18T10:00:00Z
 tags:
   - ai
@@ -11,36 +11,36 @@ featured: true
 draft: false
 ---
 
-For years, AI assistants acted as oracles: you asked, they answered. In 2026 the paradigm changed. Now **autonomous agents** can plan, execute tools, evaluate results, and correct their own course without constant human intervention.
+多年来，AI 助手更像神谕：你提出问题，它给出答案。到了 2026 年，范式已经发生改变。如今的 **AI Agent** 可以规划任务、调用工具、评估结果，并在不需要人类持续介入的情况下自行修正方向。
 
 <figure>
   <img
     src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80"
-    alt="Abstract diagram of interconnected neural networks"
+    alt="相互连接的神经网络抽象示意图"
   />
   <figcaption class="text-center">
-    AI agents chain reasoning and action in autonomous loops.
+    AI Agent 会在自主循环中连接推理与行动。
   </figcaption>
 </figure>
 
 ## Table of contents
 
-## What is an AI agent?
+## 什么是 AI Agent？
 
-An agent is a system that perceives its environment, reasons about it, and takes actions to achieve a goal. What changed in recent years is that LLMs (Large Language Models) now act as the agent's "brain", while external tools —search engines, code interpreters, APIs— are its "hands".
+AI Agent 是一种能够感知环境、进行推理并采取行动以实现目标的系统。近年的关键变化，是 LLM（Large Language Model）开始充当 Agent 的“大脑”，而搜索引擎、代码解释器和 API 等外部工具则成为它的“双手”。
 
-The basic cycle of an agent can be summarized like this:
+AI Agent 的基本循环可以概括为：
 
-1. **Perception** — the agent receives context (prompt + history + tool results)
-2. **Reasoning** — the LLM decides what action to take
-3. **Action** — a tool is invoked or a final answer is generated
-4. **Evaluation** — the result is incorporated into the context and the cycle repeats
+1. **感知**——接收提示、历史记录和工具结果等上下文。
+2. **推理**——由 LLM 决定下一步行动。
+3. **行动**——调用工具或生成最终答案。
+4. **评估**——把结果加入上下文，然后重复循环。
 
-## Main architectures
+## 主要架构
 
-### ReAct (Reasoning + Acting)
+### ReAct（推理 + 行动）
 
-The most widespread pattern. The model alternates _Thought_ and _Action_ steps until reaching a final answer.
+这是使用最广泛的模式。模型在“思考”和“行动”步骤之间交替，直到得到最终答案。
 
 ```python file=agent_react.py
 from langchain.agents import create_react_agent
@@ -58,9 +58,9 @@ executor = AgentExecutor(agent=agent, tools=tools, verbose=True) # [!code highli
 result = executor.invoke({"input": "What is the current price of BTC in USD?"})
 ```
 
-### Plan-and-Execute
+### Plan-and-Execute（规划后执行）
 
-Separates planning from execution. More robust for complex tasks with many steps.
+这种架构把规划和执行分开，对于包含多个步骤的复杂任务更加稳健。
 
 ```python file=agent_plan_execute.py
 from langchain_experimental.plan_and_execute import (
@@ -75,9 +75,9 @@ executor = load_agent_executor(llm, tools)  # [!code ++]
 agent = PlanAndExecute(planner=planner, executor=executor)
 ```
 
-### Multi-agent (Crew/Graph)
+### Multi-Agent（Crew/Graph）
 
-Several specialized agents collaborate: one researches, another writes, another reviews. Frameworks like **CrewAI** or **LangGraph** facilitate this coordination.
+多个专业 Agent 可以共同协作：一个负责研究，一个负责写作，另一个负责审查。**CrewAI** 和 **LangGraph** 等框架能够简化这种协调过程。
 
 ```python file=crew_example.py
 from crewai import Agent, Task, Crew
@@ -103,26 +103,26 @@ crew = Crew(agents=[researcher, writer], tasks=[task])
 crew.kickoff()
 ```
 
-## Real use cases
+## 真实应用场景
 
-| Use case                 | Agent involved                       | Estimated savings                  |
-| ------------------------ | ------------------------------------ | ---------------------------------- |
-| Automated code review    | Static analysis agent + LLM          | 60% of review time                 |
-| Test generation          | Plan-and-Execute over codebase       | 40% effortless coverage            |
-| Incident response        | Monitor + Reasoner + Actuator        | MTTR reduction by 70%              |
-| Living documentation     | Agent that reads commits & makes docs| Non-stop updated documentation     |
+| 应用场景       | 参与的 Agent                  | 预计收益                |
+| -------------- | ----------------------------- | ----------------------- |
+| 自动代码审查   | 静态分析 Agent + LLM          | 节省约 60% 审查时间     |
+| 测试生成       | 面向代码库的 Plan-and-Execute | 低成本增加约 40% 覆盖率 |
+| 故障响应       | 监控器 + 推理器 + 执行器      | 平均恢复时间降低约 70%  |
+| 持续更新的文档 | 读取提交并生成文档的 Agent    | 文档始终跟随代码更新    |
 
-## Security considerations
+## 安全注意事项
 
-> **Golden rule:** an agent should never have more permissions than strictly necessary to complete its task.
+> **黄金规则：**AI Agent 拥有的权限，不应超过完成任务所必需的范围。
 
-The main risks are:
+主要风险包括：
 
-- **Prompt injection**: a malicious input convinces the agent to execute unauthorized actions.
-- **Tool misuse**: the agent invokes a destructive tool (e.g., `DELETE` on a database) due to flawed reasoning.
-- **Infinite loops**: without an iteration limit, the agent can consume tokens and money indefinitely.
+- **Prompt Injection：**恶意输入诱导 Agent 执行未授权操作。
+- **工具误用：**错误推理导致 Agent 调用破坏性工具，例如删除数据库内容。
+- **无限循环：**如果没有迭代次数限制，Agent 可能无限消耗 token 和费用。
 
-Mitigate these risks with:
+可以通过限制执行过程降低风险：
 
 ```python file=safe_executor.py
 executor = AgentExecutor(
@@ -134,8 +134,8 @@ executor = AgentExecutor(
 )
 ```
 
-## The future is agentic
+## 未来属于 Agentic Workflow
 
-The transition from "AGI" (General Purpose AI) to "Agentic AI" is redefining what it means to be a developer. It's not about agents replacing programmers, but about programmers who know how to orchestrate agents replacing those who do not.
+从 AGI（Artificial General Intelligence）到 Agentic AI 的转变，正在重新定义开发者的工作。重点不是 AI Agent 取代程序员，而是懂得编排 Agent 的程序员，会比完全不会使用 Agent 的人更具优势。
 
-The next step is **persistent memory**: agents that remember past conversations and projects, accumulate context, and improve over time, like a colleague who learns from every sprint.
+下一步是 **Persistent Memory**：让 Agent 记住过去的对话和项目，持续积累上下文，并随着时间改进，就像一位能从每次迭代中学习的同事。
